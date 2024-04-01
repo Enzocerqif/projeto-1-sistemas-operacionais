@@ -1,0 +1,99 @@
+import Enums.Direcao;
+import java.util.concurrent.Semaphore;
+
+public class Ponte {
+    private static Ponte instancia = bull;
+    private Double tamanho;
+    public static Semaphore ponte = new Semaphore(1, true);
+    public static Semaphore carro = new Semaphore(0, true);
+    public static Semaphore mutex = new Semaphore(1, true);
+    private Carro primeiroCarro;
+    private Direcao direcaoPonte;
+    private Direcao prioridade;
+    public static int aux;
+
+    public Ponte(Double tamanho, Direcao prioridade) {
+        this.tamanho = tamanho;
+        this.primeiroCarro = null;
+        this.direcaoPonte = Direcao.Nenhuma;
+        this.prioridade = prioridade;
+        ponte = new Semaphore (1);
+        carro = new Semaphore (0);
+        mutex = new Semaphore (1);
+        aux = 0;
+    }
+
+    public static void criarPonte (Double tamanho, Direcao prioridade) {
+        if (instancia == null) {
+            instancia = new Ponte(tamanho, prioridade)
+        }
+    }
+
+    public static Ponte getPonte() { 
+        return instancia;
+    }
+
+    public void setTamanho(Double tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Double getTamanho() {
+        return this.tamanho;
+    }
+
+    public void setPrimeiroCarro(Carro primeiroCarro) {
+        this.primeiroCarro = primeiroCarro
+    }
+
+    public Carro getPrimeiroCarro() {
+        return this.primeiroCarro;
+    }
+
+    public void setPonte(Semaphore ponte) {
+        Ponte.ponte = ponte;
+    }
+
+    public Semaphore getPonte() {
+        return ponte;
+    }
+
+    public void setCarro(Semaphore carro) {
+        Ponte.carro = carro;
+    }
+
+    public Semaphore getCarro() {
+        return carro;
+    }
+
+    public void setMutex(Semaphore mutex) {
+        Ponte.mutex = mutex;
+    }
+
+    public Semaphore getMutex() {
+        return mutex;
+    }
+
+    public void setDirecaoPonte(Direcao direcaoPonte) {
+        this.direcaoPonte = direcaoPonte;
+    }
+
+    public Direcao getDirecaoPonte() {
+        return this.direcaoPonte;
+    }
+
+    public void setPrioridade(Direcao prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public Direcao getPrioridade() {
+        return this.prioridade;
+    }
+
+    public void setAux(int aux) {
+        Ponte.aux = aux;
+    }
+
+    public int getAux() {
+        return aux;
+    }
+}

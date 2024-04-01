@@ -1,0 +1,35 @@
+public enum Estados {
+   Parado,
+   Esperando,
+   NaPonte,
+   Destruido;
+
+   private Estados() {
+   }
+}
+
+public enum Direcao {
+    ParaDireita,
+    ParaEsquerda,
+    Livre;
+ 
+    private Direcao() {
+    }
+ }
+
+ public enum Lado {
+    Esquerdo,
+    Direito;
+ 
+    private Lado() {
+    }
+ }
+ 
+ public enum Prioridade {
+    Nenhuma,
+    Direita,
+    Esquerda;
+ 
+    private Prioridade() {
+    }
+ }

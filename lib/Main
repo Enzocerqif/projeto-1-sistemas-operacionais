@@ -1,0 +1,16 @@
+import Enums.Direcao;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        Direcao direita = Direcao.Direita;
+        Direcao esquerda = Direcao.Esquerda;
+        Ponte.novaPonte(100.0, direita);
+        
+    }
+
+
+
+}

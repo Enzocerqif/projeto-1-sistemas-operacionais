@@ -1,0 +1,8 @@
+import Enums.Direcao;
+import Enums.Estados;
+import java.util.List;
+
+piblic class Log {
+    public Log() {
+    }
+}
